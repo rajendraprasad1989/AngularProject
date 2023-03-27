@@ -1,0 +1,120 @@
+<div class="div1">
+<div class="container-fluid">
+    <nav class="navbar bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Employee Management System</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <button class="btn btn-outline-success" type="submit" data-bs-toggle="modal" data-bs-target="#addEmployee">Add Employee</button>
+          </div>
+        </div>
+      </nav>
+  
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Employee ID</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">EmailId</th>
+            <th scope="col">PhoneNo</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of empList">
+            <td>{{employee.employeeId}}</td>
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.emailId}}</td>
+            <td>{{employee.phoneNo}}</td>
+            <td>
+                <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editEmployee" (click)="editEmployee(employee)">Edit</button>
+                <button type="button" class="btn btn-outline-danger" (click)="deleteEmployee(employee.employeeId)">Delete</button>
+            </td>
+
+          </tr>
+          
+        </tbody>
+      </table>
+  <!-- Add Employee -->
+  <div class="modal fade" id="addEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Employee</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="empDetail">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">FirstName</label>
+                  <input type="text" formControlName="firstname" class="form-control" id="firstname" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">LastName</label>
+                    <input type="text" formControlName="lastname" class="form-control" id="lastname" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">EmailId</label>
+                    <input type="text" formControlName="emailid"  class="form-control" id="emailid" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">PhoneNo</label>
+                    <input type="text" formControlName="phoneno" id="phoneno" class="form-control" aria-describedby="emailHelp">
+                  </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="addEmployee(empDetail)">Add Employee</button>
+                  </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Edit employee modal -->
+  <div class="modal fade" id="editEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit employee details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form [formGroup]="empDetail">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">FirstName</label>
+              <input type="text" formControlName="firstname" class="form-control" id="firstname" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">LastName</label>
+                <input type="text" formControlName="lastname" class="form-control" id="lastname" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">EmailId</label>
+                <input type="text" formControlName="emailid"  class="form-control" id="emailid" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">PhoneNo</label>
+                <input type="text" formControlName="phoneno" id="phoneno" class="form-control" aria-describedby="emailHelp">
+              </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="updateEmployee()">Update Employee</button>
+              </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<footer>
+  <div class="container" class="bg-primary" data-bs-theme="light">
+    <p class="text-center">Copyright &copy; 2016 digiwhiz.com.au</p>
+  </div>
+</footer>
