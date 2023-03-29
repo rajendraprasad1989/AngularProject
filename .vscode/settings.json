@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/0f022b45-3f04-4d6c-af78-08b20e2f414e/resourceGroups/EmployeeManagementSystem20230328101440ResourceGroup/providers/Microsoft.Web/sites/EmployeeManagementSystem20230328112409",
+    "appService.deploySubpath": "dist"
+}
